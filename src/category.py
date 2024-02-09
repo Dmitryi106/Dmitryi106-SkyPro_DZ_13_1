@@ -1,16 +1,14 @@
-# This is a sample Python script.
+class Category:
+    name: str
+    description: str
+    products: list
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    total_categories = 0
+    total_products = 0
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def __init__(self, name: str, description: str, products: list):
+        self.name = str(name)
+        self.description = str(description)
+        self.products = list(products)
+        Category.total_categories += 1
+        Category.total_products += len(self.products)
