@@ -6,7 +6,7 @@ class Category:
     total_categories = 0
     total_products = 0
 
-    def __init__(self, name: str, description: str, products: list):
+    def __init__(self, name, description, products):
         self.name = str(name)
         self.description = str(description)
         self.products = list(products)
