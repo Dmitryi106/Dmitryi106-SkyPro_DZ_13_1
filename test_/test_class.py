@@ -25,7 +25,7 @@ def test_Category():
 def test_init_category(test_Category):
     assert test_Category.name == "Видеокарты"
     assert test_Category.description == "игровые видеокарты для компьютера"
-    assert test_Category.products == ["MSI NVIDIA GeForce RTX 4060TI", "MSI NVIDIA GeForce RTX 4070Ti", "MSI NVIDIA Ge"]
+    assert test_Category._products == ["MSI NVIDIA GeForce RTX 4060TI", "MSI NVIDIA GeForce RTX 4070Ti", "MSI NVIDIA Ge"]
     assert Category.total_categories == 1
 
 @pytest.fixture
