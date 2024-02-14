@@ -1,16 +1,33 @@
-# This is a sample Python script.
+class Category:
+    name: str
+    description: str
+    _products: list
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    total_categories = 0
+    total_products = 0
+
+    def __init__(self, name, description, products):
+        self.name = str(name)
+        self.description = str(description)
+        self._products = list(products)
+        Category.total_categories += 1
+        Category.total_products += len(self._products)
+
+    @property
+    def get_products(self):
+        return self._products
+
+    def get_products(self):
+        for product in self._products:
+            print(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
+
+    def add_product(self, product):
+        self._products.append(product)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "MSI NVIDIA GeForce RTX 4070Ti"])
+print()
+# category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "MSI NVIDIA GeForce RTX 4070Ti"])
+# print(category.get_products)
+# category.add_product("MSI NVIDIA Ge")
+# print(category.get_products)
