@@ -21,12 +21,12 @@ def test_total_category(test_total_categories):
 
 @pytest.fixture
 def test_Category():
-    return Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", ["видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10]])
+    return Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10])
 
 def test_init_category(test_Category):
     assert test_Category.name == "Видеокарты"
     assert test_Category.description == "игровые видеокарты для компьютера"
-    assert test_Category.products == 'MSI NVIDIA GeForce RTX 4060TI, 59000 руб. Остаток: 10 шт'
+    assert test_Category.product == 'MSI NVIDIA GeForce RTX 4060TI, 59000 руб. Остаток: 10 шт'
     assert Category.total_categories == 1
 
 

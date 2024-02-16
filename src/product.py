@@ -11,6 +11,9 @@ class Product:
         self._price = float(price)
         self.quantity = int(quantity)
 
+    def __str__(self):
+        return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт'
+
 
     @classmethod
     def new_product(cls, name, description, price, quantity):
@@ -30,7 +33,6 @@ class Product:
             self._price = value
 
 
-# product = Product("MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10)
-#
-# Product.new_product("MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10)
+product = Product("MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb", 59000, 15)
+print(str(product))
 
