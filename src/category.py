@@ -16,7 +16,7 @@ class Category:
 
     @property
     def products(self):
-        return f'{self.__products[0]}, {self.__products[2]} руб. Остаток: {self.__products[3]} шт'
+        return f'{self.__products[0]}, {self.__products[1]} руб. Остаток: {self.__products[1]} шт'
 
 
     @products.setter
@@ -24,13 +24,11 @@ class Category:
         self.__products.append(product)
 
 
-# category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10])
-# print(category.products)
-# category.products("MSI NVIDIA Ge")
-# print(category.products)
-# category.products('radeon AMD 21080')
-# print(category.products)
+category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb", 59000, 1])
+print(category.products)
 #
-# category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb, Тип видеопамяти GDDR6, Частота видеопамяти 18000 МГц", 59000, 10])
-# print(category.print_products)
+category.products
+print(category.products)
+category.products('radeon AMD 21080')
+print(category.products)
 
