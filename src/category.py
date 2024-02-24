@@ -1,34 +1,52 @@
 class Category:
-    name: str
-    description: str
-    products: list
 
     total_categories = 0
     total_products = 0
 
     def __init__(self, name, description, products):
-        self.name = str(name)
-        self.description = str(description)
-        self.products = list(products)
+        """
+        Конструктор класса Category
+        """
+        self.name = name
+        self.description = description
+        self.__products = set(products)
+
+
+
+    def add_products(self, product):
+        """
+        Метод добавляет продукт в категорию
+        """
+        self.__products.add(product)
         Category.total_categories += 1
-        Category.total_products += len(self.products)
+        return self.__products
 
-
-    def products(self, product):
-        self.products.append(product)
+    @property
+    def products(self):
+        """
+        Метод возвращает список продуктов с полной информацией
+        """
+        info_list = []
+        for product in self.__products:
+            info_list.append(f'{product.name}, {product.price} руб. Остаток: {product.count} шт')
+        return info_list
 
 
     def __str__(self):
-        return f'{self.products[0]}, {self.products[2]} руб. Остаток: {self.products[3]} шт'
+        """
+        Метод выводит в виде строки категорию продукта и его количество
+        """
+        return f'{self.name}, количество продуктов {len(self)} шт'
+
+
+    def __len__(self):
+        """
+        Метод вычисляет общее количество товара на складе
+        """
+        count_all_products = 0
+        for product in self.__products:
+            count_all_products += product.count
+        return count_all_products
 
 
 
-
-
-
-category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060TI", "видеопамять 8Gb", 59000, 15])
-print(category)
-print(category.products)
-category = Category("Видеокарты", "игровые видеокарты для компьютера", ["MSI NVIDIA GeForce RTX 4060", "видеопамять 6Gb", 40000, 25])
-print(category)
-print(category.products)
