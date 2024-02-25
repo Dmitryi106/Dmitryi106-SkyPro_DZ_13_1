@@ -1,5 +1,4 @@
 class Product:
-
     products_list = []
 
     def __init__(self, name, description, price: float, count: int):
@@ -11,7 +10,6 @@ class Product:
         self._price = price
         self.count = count
         Product.products_list.append(self)
-
 
     @classmethod
     def create_product(cls, product_dictionary):
@@ -33,9 +31,8 @@ class Product:
     def price(self):
         return self._price
 
-
     @price.setter
-    def prices(self, value: int):
+    def price(self, value: int):
         """Доработать изменение цены!!!!!!!!!!!!"""
         """
         Метод изменения цены
@@ -53,14 +50,11 @@ class Product:
                 elif answer == 'n':
                     print(f'Действие отменено')
 
-
-
     def __str__(self):
         """
         Магический метод выводит продукт, цену, остаток на складе
         """
         return f'{self.name}, {self.price} руб. Остаток: {self.count} шт'
-
 
     def __add__(self, other):
         """

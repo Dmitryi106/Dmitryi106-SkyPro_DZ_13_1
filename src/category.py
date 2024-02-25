@@ -1,5 +1,4 @@
 class Category:
-
     total_categories = 0
     total_products = 0
 
@@ -10,8 +9,6 @@ class Category:
         self.name = name
         self.description = description
         self.__products = set(products)
-
-
 
     def add_products(self, product):
         """
@@ -31,13 +28,11 @@ class Category:
             info_list.append(f'{product.name}, {product.price} руб. Остаток: {product.count} шт')
         return info_list
 
-
     def __str__(self):
         """
         Метод выводит в виде строки категорию продукта и его количество
         """
         return f'{self.name}, количество продуктов {len(self)} шт'
-
 
     def __len__(self):
         """
@@ -47,6 +42,3 @@ class Category:
         for product in self.__products:
             count_all_products += product.count
         return count_all_products
-
-
-
