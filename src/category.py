@@ -1,3 +1,6 @@
+from src.product import LawnGrass, Smartphone
+
+
 class Category:
     total_categories = 0
     total_products = 0
@@ -9,14 +12,29 @@ class Category:
         self.name = name
         self.description = description
         self.__products = set(products)
-
-    def add_products(self, product):
-        """
-        Метод добавляет продукт в категорию
-        """
-        self.__products.add(product)
         Category.total_categories += 1
-        return self.__products
+
+    # def add_products(self, product):
+    #     """
+    #     Метод добавляет продукт в категорию
+    #     """
+    #     self.__products.add(product)
+    #     Category.total_products += 1
+    #     return self.__products
+        def add_products(self, value):
+            if not isinstance(value, (Smartphone, LawnGrass)):
+                raise TypeError
+
+            elif not issubclass(value.__class__, (Smartphone, LawnGrass)):
+                raise TypeError
+
+            else:
+                self.__products.append({
+                    "name": value[0],
+                    "description": value[1],
+                    "price": value[2],
+                    "quantity": value[3]
+                })
 
     @property
     def products(self):

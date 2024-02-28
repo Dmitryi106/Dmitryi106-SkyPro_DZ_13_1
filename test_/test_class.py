@@ -1,5 +1,7 @@
 import pytest
 
+import src
+
 from src.category import Category
 from src.product import Product
 
@@ -50,9 +52,8 @@ def test_add_product():
     product_two_instance = Product('Samsung Galaxy C23 Ultra', '256GB, Серый цвет, 200mp', 100000.0, 10)
     category.add_products(product_one_instance)
     category.add_products(product_two_instance)
-    assert category.total_categories == 2
-    assert category.total_products == 0
-
+    assert category.total_categories == 1
+    assert category.total_products == 2
 
 def test_category():
     category = Category('Смартфоны', 'Категория для смартфонов', [])

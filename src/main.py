@@ -17,13 +17,23 @@ def main():
         'price': 200000.0,
         'count': 5
     }
+    prod_tree_data ={
+        'name': 'Iphone 15 pro',
+        'description': '1TB, Black space',
+        'price': 240000.0,
+        'count': 5
+    }
 
     product_one_instance = Product.create_product(prod_one_data)
     product_two_instance = Product.create_product(prod_two_data)
+    # product_tree_instance = Product.create_product(prod_tree_data)
+
     print(type(product_one_instance))
     print(product_one_instance)
+
     all_products = [product_two_instance, product_one_instance]
     category = Category('Смартфоны', 'Категория для смартфонов', all_products)
+
     print(category)
     print(Product.price)
     print(product_one_instance + product_two_instance)

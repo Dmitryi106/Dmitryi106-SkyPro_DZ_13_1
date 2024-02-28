@@ -56,8 +56,29 @@ class Product:
         """
         return f'{self.name}, {self.price} руб. Остаток: {self.count} шт'
 
+    # def __add__(self, other):
+    #     """
+    #     Магический метод считает общую стоимость продуктов и количество шт. на складе
+    #     """
+    #     # return f'{self.price * self.count + other.price * other.count} руб. общая цена всех продуктов на складе.\nОбщее количество продуктов {self.count + other.count} шт на склад'
     def __add__(self, other):
-        """
-        Магический метод считает общую стоимость продуктов и количество шт. на складе
-        """
-        return f'{self.price * self.count + other.price * other.count} руб. общая цена всех продуктов на складе.\nОбщее количество продуктов {self.count + other.count} шт на склад'
+        if isinstance(other, type(self)):
+            return f'{self.price * self.count + other.price * other.count} руб. общая цена всех продуктов на складе.\nОбщее количество продуктов {self.count + other.count} шт на склад'
+        else:
+            raise TypeError
+
+class Smartphone(Product):
+    def __init__(self, name, description, price: float, count: int, performance, model, memory, color):
+        super().__init__(name, description, price, count)
+        self.performance = performance
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+    def __init__(self, name, description, price: float, count: int, country_origin, germination_period, color):
+        super().__init__(name, description, price, count)
+        self.country_origin = country_origin
+        self.germination_period = germination_period
+        self.color = color
